@@ -6,14 +6,14 @@
 /*   By: thibaud <thibaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 20:45:42 by thibaud           #+#    #+#             */
-/*   Updated: 2024/06/29 22:26:38 by thibaud          ###   ########.fr       */
+/*   Updated: 2024/06/30 16:10:46 by thibaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minilibx-linux/mlx.h"
 #include "../HDRS/pixel.h"
 
-void	_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	_mlx_pixel_put(t_data *data, int x, int y, int color) 
 {
 	char	*dst;
 
@@ -37,21 +37,18 @@ static void	_set_vars_img(t_struct *g, int x, int y)
 
 int	_looper(t_struct *g)
 {
-	static int	x = 0;
-	static int	y = 0;
+	int	x = 0; // coordonnée en abs du pxl dans l image
+	int	y = 0; // coordonnée en ord du pxl dans l image
+	int color = 0; // color du pxl
 	
-	_mlx_pixel_put(g->img, x, y, 55);
-	if (x < 100)
-		++x;
-	if (y < 100)
-	++y;	
+	_mlx_pixel_put(g->img, x, y, color);
 	mlx_put_image_to_window(g->vars->mlx, g->vars->win, g->img->img, 0, 0);
 	return (0);
 }
 
 void	_window(t_struct *g)
 {
-	_set_vars_img(g, 500, 500);
+	_set_vars_img(g, SCREEN_X, SCREEN_Y);
 	mlx_put_image_to_window(g->vars->mlx, g->vars->win, g->img->img, 0, 0);
 	mlx_loop_hook(g->vars->mlx, _looper, g);
 	mlx_loop(g->vars->mlx);

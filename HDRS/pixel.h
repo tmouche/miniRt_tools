@@ -6,12 +6,14 @@
 /*   By: thibaud <thibaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 20:54:22 by thibaud           #+#    #+#             */
-/*   Updated: 2024/06/29 21:54:51 by thibaud          ###   ########.fr       */
+/*   Updated: 2024/06/30 16:09:12 by thibaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIXEL_H
 # define PIXEL_H
+# define SCREEN_X 100
+# define SCREEN_Y 100
 
 typedef struct s_data
 {
